@@ -1,8 +1,5 @@
-name: Expo Publish
-on:
-  push:
-    branches:
-      - main
+name: Expo Review
+on: [pull_request]
 jobs:
   publish:
     name: Install and publish
@@ -15,7 +12,6 @@ jobs:
       - uses: expo/expo-github-action@v6
         with:
           expo-version: 4.x
-          expo-cache: true
           token: ${{ secrets.EXPO_TOKEN }}
       - run: npm ci
-      - run: expo publish
+      - run: expo publish --release-channel=pr-${{ github.event.number }}
