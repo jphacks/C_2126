@@ -15,3 +15,10 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
       - run: npm ci
       - run: expo publish --release-channel=pr-${{ github.event.number }}
+      - name: Slack Notification on Failure
+        uses: rtCamp/action-slack-notify@v2.0.2
+        if: failure()
+        env:
+          SLACK_CHANNEL: c_2126
+          SLACK_TITLE: Build Failure
+          SLACK_COLOR: danger
