@@ -17,5 +17,5 @@ jobs:
           expo-version: 4.x
           expo-cache: true
           token: ${{ secrets.EXPO_TOKEN }}
-      - run: npm install
+      - run: npm ci
       - run: expo publish

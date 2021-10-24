@@ -13,5 +13,5 @@ jobs:
         with:
           expo-version: 4.x
           token: ${{ secrets.EXPO_TOKEN }}
-      - run: npm install
+      - run: npm ci
       - run: expo publish --release-channel=pr-${{ github.event.number }}
