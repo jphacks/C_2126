@@ -5,6 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { createStackNavigator } from '@react-navigation/stack';
+import AddItemScreen from './screens/AddItemScreen';
 
 const Stack = createStackNavigator();
 
@@ -12,7 +13,9 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <Stack.Navigator></Stack.Navigator>
+        <Stack.Navigator screenOptions={{ header: () => null }}>
+          <Stack.Screen name='AddItem' component={AddItemScreen} />
+        </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
   );
