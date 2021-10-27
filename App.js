@@ -6,6 +6,7 @@ import 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { createStackNavigator } from '@react-navigation/stack';
 import AddItemScreen from './screens/AddItemScreen';
+import MainpageScreen from './screens/MainScreen';
 
 const Stack = createStackNavigator();
 
@@ -14,7 +15,7 @@ export default function App() {
     <SafeAreaProvider>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ header: () => null }}>
-          <Stack.Screen name='AddItem' component={AddItemScreen} />
+          <Stack.Screen name='mainpage' component={MainpageScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

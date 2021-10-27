@@ -13,7 +13,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 // }
 
 
-const styles = StyleSheet.create({
+const styles = ({
     container: {
         marginTop: 30,
         marginBottom: 30,
