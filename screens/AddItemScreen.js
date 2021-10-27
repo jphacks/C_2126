@@ -1,27 +1,57 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Button, Card, Input, Text } from 'react-native-elements';
-import { Picker } from '@react-native-picker/picker';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import { ListItem, Card, Text } from 'react-native-elements';
 
-const categories = [
+
+const user = [
   {
-    label: '麺類',
-    value: 'noddle',
+    itemName: 'カップラーメン',
+    count: '20個',
+    expiryDate: '2021年',
+    category: '麺'
   },
-  { label: '米', value: 'rice' },
-];
-
+  {
+    itemName: 'カップラーメン',
+    count: '20個',
+    expiryDate: '2021年',
+    category: '麺'
+  },
+  {
+    itemName: 'カップラーメン',
+    count: '20個',
+    expiryDate: '2021年',
+    category: '麺'
+  },
+  {
+    itemName: 'カップラーメン',
+    count: '20個',
+    expiryDate: '2021年',
+    category: '麺'
+  },
+  {
+    itemName: 'a',
+    expiryDate: '',
+    category: ''
+  },
+]
 const AddItemScreen = () => {
   const [itemName, setItemName] = useState('');
   const [category, setCategory] = useState('noddle');
   const currentDate = new Date();
   const [expiryDate, setExpiryDate] = useState(currentDate);
-  const [errors, setErrors] = useState({
-    itemName: '',
-    expiryDate: '',
-    category: '',
-  });
+  // const [errors, setErrors] = useState(
+  //   {
+  //     itemName: '',
+  //     expiryDate: '',
+  //     category: '',
+  //   },
+  //   {
+  //     itemName: '',
+  //     expiryDate: '',
+  //     category: '',
+  //   },
+  // );
+
 
   const handleCategoryChange = useCallback(
     (itemValue, itemIndex) => setCategory(itemValue),
@@ -44,38 +74,53 @@ const AddItemScreen = () => {
 
   return (
     <View style={styles.container}>
+      <Text >メインページ
+      </Text>
       <Card containerStyle={styles.card} wrapperStyle={styles.cardContent}>
         <Card.Title>
-          <Text h1>アイテム詳細</Text>
+          <Text h6>メッセージ</Text>
         </Card.Title>
-        <Text h3>名前</Text>
-        <Input
-          autoCompleteType='off'
-          onChangeText={setItemName}
-          value={itemName}
-          placeholder='カップ麺'
-          errorMessage={errors.itemName}
-        ></Input>
-        <Text h3>賞味期限</Text>
-        <DateTimePicker
-          minimumDate={currentDate}
-          value={expiryDate}
-          style={styles.datePicker}
-          onChange={handleExpiryDateChange}
-        ></DateTimePicker>
-        <Text h3>カテゴリ</Text>
-        <Picker selectedValue={category} onValueChange={handleCategoryChange}>
-          {categories.map((category) => (
-            <Picker.Item
-              key={category.label}
-              label={category.label}
-              value={category.value}
-            />
-          ))}
-        </Picker>
-        <Button onPress={handelAddItem} type='solid' title='追加する' />
+        <Text h4>あなたの保存食は</Text>
+        <Text h3>６日間</Text>
+        <Text h4>持ちます</Text>
       </Card>
-    </View>
+      {/* <View containerStyle={styles.card} wrapperStyle={styles.cardContent}> */}
+      <View style={styles.container} >
+        <Card.Title>
+          <Text h6>アイテム詳細</Text>
+        </Card.Title>
+        {user.map((u, i) => {
+          return (
+            <ListItem key={i} bottomDivider>
+              <View
+                style={{
+                  flexDirection: "column",
+                  flex: 1,
+                  height: 80,
+                  padding: 10,
+                  flexDirection: "row",
+                }}
+              >
+                <View style={{ flex: 0.8 }}>
+                  <View style={{ flex: 0.7 }}>
+                    <Text h4 >{u.itemName}</Text>
+                  </View>
+                  <View style={{ flex: 0.3 }}>
+                    <Text >{u.expiryDate}</Text>
+                  </View>
+
+                </View>
+                <View style={{ flex: 0.2 }}>
+                  <Text style={styles.card}>{u.count}</Text>
+                </View>
+              </View>
+
+            </ListItem>
+          );
+        })
+        }
+      </View>
+    </View >
   );
 };
 
@@ -94,7 +139,40 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   card: {
-    flex: 1,
+    flex: 0.3,
+  },
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
+  },
+
+  listitem: {
+    // flexDirection: "column",
+    // height: 100,
+    // padding: 20
+    flex: 0.4
+
+  },
+  listview: {
+
+    flex: 1.0
+  },
+  listitemname: {
+
+    // flexDirection: "row",
+    flex: 1
+
+  },
+  listitemcount: {
+
+    // flexDirection: "row",
+    flex: 0.2
+
+  },
+  listitemdate: {
+    flexDirection: "row",
+    flex: 0.8
   },
   categoryPicker: { height: '20%' },
   datePicker: { alignSelf: 'center', width: '40%' },
