@@ -1,6 +1,9 @@
 import React, { useCallback, useState } from 'react';
 import { ScrollView, View, StyleSheet } from 'react-native';
 import { ListItem, Card, Text } from 'react-native-elements';
+// import StockList from '../components/StockList';
+// import NameButton from '../components/NameButton';
+import Stock from '../components/Stockconponent';
 
 
 const user = [
@@ -34,7 +37,7 @@ const user = [
     category: ''
   },
 ]
-const MainpageScreen = () => {
+const ListPageScreen = () => {
   const [itemName, setItemName] = useState('');
   const [category, setCategory] = useState('noddle');
   const currentDate = new Date();
@@ -77,62 +80,19 @@ const MainpageScreen = () => {
     <View style={styles.container}>
       <Text >メインページ
       </Text>
-      <Card containerStyle={{ flex: 0.2 }} wrapperStyle={styles.cardContent}>
-        <Card.Title>
-          <Text h6>メッセージ</Text>
-        </Card.Title>
-        <Text h3>{PreservedFoodDate}日間</Text>
-        <Text h4>保存食があります。</Text>
-      </Card>
-      {/* <View containerStyle={styles.card} wrapperStyle={styles.cardContent}> */}
-      {/* <View style={styles.container} > */}
-      <Card containerStyle={{ flex: 0.8 }} wrapperStyle={styles.cardContent}>
+      <Card containerStyle={{ flex: 1 }} wrapperStyle={styles.cardContent}>
         <Card.Title>a
           <Text>アイテム詳細</Text>
         </Card.Title>
-        <ScrollView>
-          {user.map((u, i) => {
-            return (
-              <ListItem key={i} bottomDivider>
-                <View
-                  style={{
-                    flexDirection: "column",
-                    flex: 1,
-                    height: 100,
-                    padding: 10,
-                  }}
-                >
-                  <View style={{
-                    flex: 0.4,
-                    flexDirection: "row"
-                  }}>
-                    <View style={{ flex: 0.55 }}>
-                      <Text h4 >{u.itemName}</Text>
-                    </View>
-                    <View style={{ flex: 0.2 }}>
-                      <Text h4 >{u.category}</Text>
-                    </View>
-                    <View style={{ flex: 0.25 }}>
-                      <Text h3>{u.count}</Text>
-                    </View>
+        <Stock user={user} />
 
-                  </View>
-                  <View style={{ flex: 0.2 }}>
-                    <Text style={{ flex: 1 }}>{u.expiryDate}</Text>
-                  </View>
-                </View>
 
-              </ListItem>
-            );
-          })
-          }
-        </ScrollView>
       </Card>
     </View >
   );
 };
 
-export default MainpageScreen;
+export default ListPageScreen;
 
 const styles = StyleSheet.create({
   container: {
