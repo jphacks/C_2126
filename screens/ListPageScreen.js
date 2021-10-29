@@ -6,23 +6,42 @@ import { ListItem, Card, Text } from 'react-native-elements';
 import Stock from '../components/Stockconponent';
 
 
+const user = [
+  {
+    itemName: 'カップラーメン',
+    count: 3,
+    expiryDate: '1976-04-19T12:59-0500',
+    category: 'その他'
+  },
+  {
+    itemName: 'カップラーメン',
+    count: 1,
+    expiryDate: '2021-1-3',
+    category: 1
+  },
+  {
+    itemName: 'カップラーメン',
+    count: 3,
+    expiryDate: '2021-11-4',
+    category: '麺'
+  },
+  {
+    itemName: 'カップラーメン',
+    count: 19,
+    expiryDate: '2021-03-13',
+    category: '麺'
+  },
+  {
+    itemName: 'a',
+    count: 4,
+    expiryDate: '2021-06-13',
+    category: ''
+  },
+]
 const ListPageScreen = () => {
   const [itemName, setItemName] = useState('');
   const [category, setCategory] = useState('noddle');
   const currentDate = new Date();
-  const [expiryDate, setExpiryDate] = useState(currentDate);
-  // const [errors, setErrors] = useState(
-  //   {
-  //     itemName: '',
-  //     expiryDate: '',
-  //     category: '',
-  //   },
-  //   {
-  //     itemName: '',
-  //     expiryDate: '',
-  //     category: '',
-  //   },
-  // );
 
 
   const handleCategoryChange = useCallback(
