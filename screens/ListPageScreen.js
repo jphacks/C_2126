@@ -6,37 +6,6 @@ import { ListItem, Card, Text } from 'react-native-elements';
 import Stock from '../components/Stockconponent';
 
 
-const user = [
-  {
-    itemName: 'カップラーメン',
-    count: '20',
-    expiryDate: '2021年',
-    category: '麺'
-  },
-  {
-    itemName: 'カップラーメン',
-    count: '20',
-    expiryDate: '2021年',
-    category: '麺'
-  },
-  {
-    itemName: 'カップラーメン',
-    count: '20個',
-    expiryDate: '2021年',
-    category: '麺'
-  },
-  {
-    itemName: 'カップラーメン',
-    count: '20個',
-    expiryDate: '2021年',
-    category: '麺'
-  },
-  {
-    itemName: 'a',
-    expiryDate: '',
-    category: ''
-  },
-]
 const ListPageScreen = () => {
   const [itemName, setItemName] = useState('');
   const [category, setCategory] = useState('noddle');
