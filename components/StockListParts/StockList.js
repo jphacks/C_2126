@@ -36,7 +36,7 @@ const StockList = (props) => {
                                         <Text h4 >{u.category}</Text>
                                     </View>
                                     <View style={{ flex: 0.25 }}>
-                                        <Text h3>{u.count}</Text>
+                                        <Text h3>{u.count}食分</Text>
                                     </View>
 
                                 </View>
