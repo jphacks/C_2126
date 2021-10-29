@@ -18,7 +18,7 @@ const Stock = (props) => {
     // setUser()
     // props.user.sort();
     const { sortedItems, toggleSort } = useSort(props.user);
-    console.log(useSort(userlist))
+    // console.log(useSort(userlist))
 
     const [toggle, setToggle] = useState(false);
     const onPress = (nextIndex) => {
@@ -38,20 +38,11 @@ const Stock = (props) => {
 
     return (
         <View style={[{ marginTop: 10, padding: 0 }, props.style]}>
-            <Button
-                title="test"
-                onPress={() => {
-                    toggleSort();
-                }} />
-            <Text>{ }</Text>
+
             <ButtonGroup
                 onPress={(selectedIndex) => onPress(selectedIndex)}
                 selectedIndex={selectedIndex}
-                // buttonContainerStyle={{
-                //     borderWidth: 1,
-                //     padding: 0,
-                //     margin: 0
-                // }}
+
                 buttons={buttons}
                 containerStyle={{ height: 30 }}
                 buttonStyle={{

@@ -18,7 +18,7 @@ export default function App() {
     <SafeAreaProvider>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ header: () => null }}>
-          <Stack.Screen name='info' component={ListPageScreen} />
+          <Stack.Screen name='info' component={Info_page} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
