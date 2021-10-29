@@ -7,7 +7,6 @@ const Textinfo = (props) => {
     let str;
     if (props.cate === 0) {
         str = '水　'
-
     }
     else {
         str = '食料'
