@@ -7,6 +7,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { createStackNavigator } from '@react-navigation/stack';
 // import AddItemScreen from './screens/AddItemScreen';
 import ListPageScreen from './screens/ListPageScreen';
+import Info_page from './screens/date_page';
 
 const Stack = createStackNavigator();
 
@@ -15,7 +16,7 @@ export default function App() {
     <SafeAreaProvider>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ header: () => null }}>
-          <Stack.Screen name='listpage' component={ListPageScreen} />
+          <Stack.Screen name='info' component={Info_page} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
