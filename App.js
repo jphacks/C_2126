@@ -11,12 +11,14 @@ import Info_page from './screens/date_page';
 
 const Stack = createStackNavigator();
 
+
+
 export default function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ header: () => null }}>
-          <Stack.Screen name='info' component={Info_page} />
+          <Stack.Screen name='info' component={ListPageScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

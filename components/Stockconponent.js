@@ -1,21 +1,118 @@
-import React, { useCallback, useState } from 'react';
-import { ScrollView, View, StyleSheet } from 'react-native';
-import { ListItem, Card, Text } from 'react-native-elements';
+import React, { useCallback, useState, useMemo } from 'react';
+import { ScrollView, Button, View, StyleSheet } from 'react-native';
+import { ButtonGroup, ListItem, Card, Text } from 'react-native-elements';
 // import StockList from './StockListParts/StockList';
-import NameButton from './StockListParts/NameButton';
+import StockList from './StockListParts/StockList';
 
 
 const Stock = (props) => {
+    const [selectedIndex, setselectedIndex] = useState(0);
+
+
+    const buttons = ['全部', '飲料水', '主食', 'おかず', 'その他']
+
+
+
+    const [userlist, setUser] = useState(props.user);
+    // console.log(props.user)
+    // setUser()
+    // props.user.sort();
+    const { sortedItems, toggleSort } = useSort(props.user);
+    console.log(useSort(userlist))
+
+    const [toggle, setToggle] = useState(false);
+    const onPress = (nextIndex) => {
+        if (selectedIndex === nextIndex) {
+            toggleSort()
+        }
+        else {
+            setselectedIndex(nextIndex)
+        }
+    }
+    function buttontoitemindex(n) {
+        if (n === 0) {
+            return 4
+        }
+        return n - 1
+    }
 
     return (
-        <View style={styles.container}>
+        <View style={[{ marginTop: 10, padding: 0 }, props.style]}>
+            <Button
+                title="test"
+                onPress={() => {
+                    toggleSort();
+                }} />
+            <Text>{ }</Text>
+            <ButtonGroup
+                onPress={(selectedIndex) => onPress(selectedIndex)}
+                selectedIndex={selectedIndex}
+                // buttonContainerStyle={{
+                //     borderWidth: 1,
+                //     padding: 0,
+                //     margin: 0
+                // }}
+                buttons={buttons}
+                containerStyle={{ height: 30 }}
+                buttonStyle={{
+                    borderWidth: 1,
+                    borderColor: 'gray',
+                    borderBottomLeftRadius: 5,
+                    borderTopRightRadius: 10,
+                    marginHorizontal: 1
+                }}
+            />
+            <Card containerStyle={styles.card} wrapperStyle={styles.cardContent}>
 
-            <NameButton user={props.user} />
-            {/* <StockList user={props.user} /> */}
+                <StockList user={sortedItems} selectedIndex={buttontoitemindex(selectedIndex)} />
+            </Card>
+        </View>
 
-        </View >
-    );
+    )
+
 };
+
+
+//並び替えするカスタムフック
+const useSort = (items, isDate) => {
+    const [isDesc, setIsDesc] = useState(false);
+    const sortedItems = useMemo(() => {
+        //良い例
+        const goodExampleItems = isDesc
+            ? [...items].sort(_sortAsc_c)
+            : [...items].sort(_sortAsc_d);
+        return goodExampleItems;
+    }, [items, isDesc]);
+
+    // DESC/ASCの切り替え
+    const toggleSort = useCallback(() => {
+        setIsDesc((prevState) => {
+            return !prevState;
+        });
+    }, [setIsDesc]);
+    return { sortedItems, toggleSort };
+};
+
+function _sortAsc_c(a, b) {
+    if (a.count > b.count) { return -1; } if (a > b) {
+        return 1;
+    }
+    return 0;
+}
+function _sortAsc_d(a, b) {
+    if ((a.expiryDate) < (b.expiryDate)) { return -1; } if (a > b) {
+        return 1;
+    }
+    return 0;
+}
+
+function _sortDesc(a, b) {
+    if (a.count < b.count) { return 1; } if (a > b) {
+        return -1;
+    }
+    return 0;
+}
+
 
 export default Stock;
 
@@ -25,6 +122,9 @@ const styles = StyleSheet.create({
         marginBottom: 30,
         flex: 1,
     },
+
+
+
     cardContent: {
         display: 'flex',
         alignItems: 'stretch',
@@ -32,41 +132,14 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     card: {
-        flex: 0.3,
-    },
-    item: {
-        padding: 10,
-        fontSize: 18,
-        height: 44,
-    },
+        flex: 1,
+        marginHorizontal: 0,
+        marginTop: 0,
+        marginBottom: 0,
 
-    listitem: {
-        // flexDirection: "column",
-        // height: 100,
-        // padding: 20
-        flex: 0.4
-
-    },
-    listview: {
-
-        flex: 1.0
-    },
-    listitemname: {
-
-        // flexDirection: "row",
-        flex: 1
-
-    },
-    listitemcount: {
-
-        // flexDirection: "row",
-        flex: 0.2
-
-    },
-    listitemdate: {
-        flexDirection: "row",
-        flex: 0.8
-    },
-    categoryPicker: { height: '20%' },
-    datePicker: { alignSelf: 'center', width: '40%' },
+        paddingStart: 20,
+        paddingEnd: 0,
+        paddingTop: 10,
+        paddingBottom: 10,
+    }
 });

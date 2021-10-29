@@ -5,77 +5,50 @@ import { ListItem, Card, Text } from 'react-native-elements';
 // import NameButton from '../components/NameButton';
 import Stock from '../components/Stockconponent';
 
-
 const user = [
   {
     itemName: 'カップラーメン',
     count: 3,
-    expiryDate: '1976-04-19T12:59-0500',
-    category: 'その他'
+    expiryDate: '2013-02-08T09:30:26',
+    category: 0
   },
   {
     itemName: 'カップラーメン',
     count: 1,
-    expiryDate: '2021-1-3',
+    // expiryDate: '2013-02-08T09:30:26',
+    expiryDate: '2014-04-01',
     category: 1
   },
   {
     itemName: 'カップラーメン',
     count: 3,
-    expiryDate: '2021-11-4',
-    category: '麺'
+    expiryDate: '2021-01-01',
+    category: 2
   },
   {
     itemName: 'カップラーメン',
     count: 19,
-    expiryDate: '2021-03-13',
-    category: '麺'
+    expiryDate: '2021-02-09',
+    category: 3
   },
   {
     itemName: 'a',
     count: 4,
-    expiryDate: '2021-06-13',
-    category: ''
+    expiryDate: '2021-02-09',
+    category: 1
   },
 ]
+const human = { count: 3 }
 const ListPageScreen = () => {
-  const [itemName, setItemName] = useState('');
-  const [category, setCategory] = useState('noddle');
-  const currentDate = new Date();
-
-
-  const handleCategoryChange = useCallback(
-    (itemValue, itemIndex) => setCategory(itemValue),
-    []
-  );
-  const PreservedFoodDate = 3;
-
-  const handleExpiryDateChange = useCallback(
-    (e, date) => setExpiryDate(date),
-    []
-  );
-
-  const handelAddItem = useCallback(() => {
-    if (!itemName) {
-      setErrors((prevState) => ({
-        ...prevState,
-        itemName: '名前を入力してください',
-      }));
-    }
-  }, []);
-
   return (
     <View style={styles.container}>
-      <Text >メインページ
-      </Text>
-      <Card containerStyle={{ flex: 1 }} wrapperStyle={styles.cardContent}>
-        <Card.Title>a
-          <Text>アイテム詳細</Text>
-        </Card.Title>
-        <Stock user={user} />
+      <View style={{ marginTop: 5, marginHorizontal: 15 }}>
+        <Text h5>在庫管理</Text>
+      </View>
+      {/* <Stock user={props.user} style={{ flex: 0.8 }} /> */}
+      <Stock user={user} style={{ flex: 1 }} />
 
 
-      </Card>
     </View >
   );
 };
@@ -85,7 +58,8 @@ export default ListPageScreen;
 const styles = StyleSheet.create({
   container: {
     marginTop: 30,
-    marginBottom: 30,
+    marginBottom: 20,
+    marginHorizontal: 10,
     flex: 1,
   },
   cardContent: {
@@ -95,7 +69,17 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   card: {
-    flex: 0.3,
+    flex: 1,
+    marginHorizontal: 0,
+    marginTop: 5,
+    marginBottom: 5,
+
+    paddingHorizontal: 20,
+    paddingVertical: 5
+
+    // margin: 15,
+
+
   },
   item: {
     padding: 10,
@@ -103,33 +87,4 @@ const styles = StyleSheet.create({
     height: 44,
   },
 
-  listitem: {
-    // flexDirection: "column",
-    // height: 100,
-    // padding: 20
-    flex: 0.4
-
-  },
-  listview: {
-
-    flex: 1.0
-  },
-  listitemname: {
-
-    // flexDirection: "row",
-    flex: 1
-
-  },
-  listitemcount: {
-
-    // flexDirection: "row",
-    flex: 0.2
-
-  },
-  listitemdate: {
-    flexDirection: "row",
-    flex: 0.8
-  },
-  categoryPicker: { height: '20%' },
-  datePicker: { alignSelf: 'center', width: '40%' },
 });
