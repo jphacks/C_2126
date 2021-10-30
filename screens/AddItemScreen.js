@@ -6,10 +6,15 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 
 const categories = [
   {
-    label: '麺類',
-    value: 'noddle',
+    label: '飲料水',
+    value: 'water',
   },
-  { label: '米', value: 'rice' },
+
+  { label: '主食', value: 'rice' },
+
+  { label: 'おかず', value: 'sub' },
+  { label: 'その他', value: 'other' },
+
 ];
 
 const AddItemScreen = () => {
@@ -83,8 +88,8 @@ export default AddItemScreen;
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 30,
-    marginBottom: 30,
+    marginTop: 0,
+    marginBottom: 0,
     flex: 1,
   },
   cardContent: {
@@ -97,5 +102,5 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   categoryPicker: { height: '20%' },
-  datePicker: { alignSelf: 'center', width: '40%' },
+  datePicker: { alignSelf: 'center', width: '40%', alignItems: 'center', justifyContent: 'center' },
 });

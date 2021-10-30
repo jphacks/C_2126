@@ -13,6 +13,18 @@ const user = [
     category: 1
   },
   {
+    itemName: '佐藤のご飯',
+    count: 10,
+    expiryDate: '2023-04-08T09:30:26',
+    category: 1
+  },
+  {
+    itemName: '佐藤のご飯',
+    count: 5,
+    expiryDate: '2023-08-08T09:30:26',
+    category: 1
+  },
+  {
     itemName: '水',
     count: 10,
     expiryDate: '2022-04-01',

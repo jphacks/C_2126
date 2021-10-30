@@ -24,12 +24,7 @@ export default function App() {
       <NavigationContainer>
 
 
-        {/* <Stack.Navigator initialRouteName="main">
-          <Stack.Screen name='all' component={ListPageScreen} />
-          <Stack.Screen name='Initiate' component={InitiateScreen} />
-          <Stack.Screen name='main' component={Info_page} />
 
-        </Stack.Navigator> */}
 
         <Tab.Navigator initialRouteName="初期設定">
           <Tab.Screen name='追加' component={AddItemScreen} />
