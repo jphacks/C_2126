@@ -1,4 +1,4 @@
-# サンプル（プロダクト名）
+# 防災nder 
 
 [![IMAGE ALT TEXT HERE](https://jphacks.com/wp-content/uploads/2021/07/JPHACKS2021_ogp.jpg)](https://www.youtube.com/watch?v=LUPQFB4QyVo)
 
@@ -32,12 +32,14 @@
 
 ## 開発技術
 ### 活用した技術
+* django
+
 #### API・データ
-* 
-* 
+* django
 
 #### フレームワーク・ライブラリ・モジュール
-* react
+* react native
+* Linebot
 * 
 
 #### デバイス

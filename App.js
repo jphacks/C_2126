@@ -12,6 +12,7 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <SafeAreaProvider>
+
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ header: () => null }}>
           <Stack.Screen name='AddItem' component={AddItemScreen} />
@@ -20,6 +21,7 @@ export default function App() {
     </SafeAreaProvider>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
