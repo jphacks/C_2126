@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 防災nder 
 
 [![IMAGE ALT TEXT HERE](https://jphacks.com/wp-content/uploads/2021/07/JPHACKS2021_ogp.jpg)](https://www.youtube.com/watch?v=LUPQFB4QyVo)
@@ -57,3 +58,6 @@
 #### 製品に取り入れた研究内容（データ・ソフトウェアなど）（※アカデミック部門の場合のみ提出必須）
 * 
 * 
+=======
+# C_2126_1
+>>>>>>> f4e172e4c5f7c083d5ac1a85be70e11cd2c9c4c6

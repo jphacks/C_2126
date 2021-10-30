@@ -1,6 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Button, Card, Text, Slider } from 'react-native-elements';
+import LoginScreen from '../components/LoginScreen';
+
 
 export default function InitiateScreen() {
   const [numberOfDays, setNumberOfDays] = useState(1);
@@ -22,7 +24,7 @@ export default function InitiateScreen() {
     <View style={styles.container}>
       <Card wrapperStyle={styles.cardContent} containerStyle={styles.subCard}>
         <Card.Title>
-          <Text h1 style={{ textAlign: 'left' }}>
+          <Text h3 style={{ textAlign: 'left' }}>
             ようこそ
           </Text>
         </Card.Title>
@@ -64,6 +66,7 @@ export default function InitiateScreen() {
         <Text h3 style={styles.content}>{`${numberOfPeople}人`}</Text>
         <Button type='solid' title='確定' onPress={handleSubmit} />
       </Card>
+      <LoginScreen />
     </View>
   );
 }
@@ -72,12 +75,18 @@ const styles = StyleSheet.create({
   content: {
     alignContent: 'center',
     textAlign: 'center',
+    borderWidth: 0
+
   },
   subCard: {
     flex: 1,
+    marginHorizontal: 15,
+
+    marginVertical: 0
   },
   mainCard: {
     flex: 2,
+
   },
   cardContent: {
     display: 'flex',
@@ -86,7 +95,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    marginVertical: 50,
+    marginVertical: 20,
   },
   thumbStyle: {
     color: '#2196f3',
