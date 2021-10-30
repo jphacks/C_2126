@@ -8,16 +8,21 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-community/datetimepicker": "^3.5.2",
     "@react-native-masked-view/masked-view": "0.2.5",
+    "@react-native-picker/picker": "2.1.0",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/stack": "^6.0.11",
     "expo": "~43.0.0",
     "expo-status-bar": "~1.1.0",
+    "moment": "^2.29.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-moment": "^1.1.1",
     "react-native": "0.64.2",
     "react-native-elements": "^3.4.2",
     "react-native-gesture-handler": "~1.10.2",
+    "react-native-math": "^1.1.4",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-web": "0.17.1"
   },
