@@ -59,6 +59,11 @@ const ItemNameCateDate = (props) => {
     )
 }
 const ItemCount = (props) => {
+    const name = () => {
+        if (props.item.category === 0) {
+            return 'L'
+        } return '食分'
+    }
     return (
         <View style={{
 
@@ -75,9 +80,10 @@ const ItemCount = (props) => {
             </View >
             <View style={{
                 flex: 0.5,
+                alignItems: 'center'
             }}>
                 {/* <Text>{moment("1976-04-19 12:59").format("YYYY-MM-DD HH:mm")}</Text> */}
-                <Text style={{ textAlign: 'right', fontSize: 17, color: "#4d4d4d" }} > 食分</Text>
+                <Text style={{ textAlign: 'right', fontSize: 17, color: "#4d4d4d" }} > {name()}</Text>
 
             </View>
         </View >

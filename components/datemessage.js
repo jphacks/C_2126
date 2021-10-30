@@ -61,22 +61,35 @@ const Datemess = (props) => {
 
 
 
-    const date = (category) => {
+    const datewater = () => {
         return (props.user.reduce((co, u) => {
-            if (u.category === category) {
+            if (u.category === 0)
                 return co + u.count;
-            }
             return co;
+
+
         }, 0
-        ) / props.human.count)
+        ) / (props.human.count * 3))
     }
+
+    const datefood = () => {
+        return (props.user.reduce((co, u) => {
+            if (u.category !== 0) {
+                if (u.category === 1)
+                    return co + u.count;
+                return co + u.count / 2;
+            } return co;
+        }, 0
+        ) / (props.human.count * 3))
+    }
+
 
     return (
 
         <Card containerStyle={[props.style, styles.card]} wrapperStyle={[styles.cardContent, { justifyContent: 'center' }]}>
             {/* <View style={{ borderWidth: 1 }}> */}
-            <Dateinfo cate={0} date={date(0)} ideal={props.human.count} />
-            <Dateinfo cate={1} date={date(1)} ideal={props.human.count} />
+            <Dateinfo cate={0} date={datewater(0)} ideal={props.human.count} />
+            <Dateinfo cate={1} date={datefood(1)} ideal={props.human.count} />
             {/* </View> */}
         </Card>
     )
