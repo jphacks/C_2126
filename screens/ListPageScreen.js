@@ -7,38 +7,37 @@ import Stock from '../components/Stockconponent';
 
 const user = [
   {
-    itemName: 'カップラーメン',
-    count: 3,
-    expiryDate: '2013-02-08T09:30:26',
+    itemName: '佐藤のご飯',
+    count: 5,
+    expiryDate: '2023-02-08T09:30:26',
+    category: 1
+  },
+  {
+    itemName: '水',
+    count: 10,
+    expiryDate: '2022-04-01',
     category: 0
   },
   {
-    itemName: 'カップラーメン',
-    count: 1,
-    // expiryDate: '2013-02-08T09:30:26',
-    expiryDate: '2014-04-01',
-    category: 1
-  },
-  {
-    itemName: 'カップラーメン',
+    itemName: 'ビスケット',
     count: 3,
-    expiryDate: '2021-01-01',
-    category: 2
-  },
-  {
-    itemName: 'カップラーメン',
-    count: 19,
-    expiryDate: '2021-02-09',
+    expiryDate: '2024-01-01',
     category: 3
   },
   {
-    itemName: 'a',
-    count: 4,
-    expiryDate: '2021-02-09',
-    category: 1
+    itemName: '水',
+    count: 20,
+    expiryDate: '2023-02-09',
+    category: 0
+  },
+  {
+    itemName: 'カレー',
+    count: 5,
+    expiryDate: '2022-02-09',
+    category: 2
   },
 ]
-const human = { count: 3 }
+const human = { count: 3, date: 3 }
 const ListPageScreen = () => {
 
   const [selectedIndex, setselectedIndex] = useState(0);
