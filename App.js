@@ -9,8 +9,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import InitiateScreen from './screens/InitiateScreen';
-import LoginScreen from './screens/LoginScreen';
-// import AddItemScreen from './screens/AddItemScreen';
+import AddItemScreen from './screens/AddItemScreen';
 import ListPageScreen from './screens/ListPageScreen';
 import Info_page from './screens/date_page';
 
@@ -32,11 +31,11 @@ export default function App() {
 
         </Stack.Navigator> */}
 
-        <Tab.Navigator initialRouteName="main">
-          <Tab.Screen name='all' component={ListPageScreen} />
-           <Tab.Screen name='Login' component={LoginScreen} />
-          <Tab.Screen name='Initiate' component={InitiateScreen} />
-          <Tab.Screen name='main' component={Info_page} />
+        <Tab.Navigator initialRouteName="初期設定">
+          <Tab.Screen name='追加' component={AddItemScreen} />
+          <Tab.Screen name='日数' component={Info_page} />
+          <Tab.Screen name='在庫' component={ListPageScreen} />
+          <Tab.Screen name='初期設定' component={InitiateScreen} />
 
         </Tab.Navigator>
 
