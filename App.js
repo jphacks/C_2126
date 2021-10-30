@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Tab, Button, Text, View } from 'react-native';
 import 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -17,8 +17,11 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <Stack.Navigator screenOptions={{ header: () => null }}>
-          <Stack.Screen name='info' component={Info_page} />
+        <Stack.Navigator initialRouteName="main">
+          <Stack.Screen name='all' component={ListPageScreen} />
+
+          <Stack.Screen name='main' component={Info_page} />
+
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

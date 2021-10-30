@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { ScrollView, View, StyleSheet } from 'react-native';
-import { ListItem, Card, Text } from 'react-native-elements';
+import { ButtonGroup, ListItem, Card, Text } from 'react-native-elements';
 // import StockList from '../components/StockList';
 // import NameButton from '../components/NameButton';
 import Stock from '../components/Stockconponent';
@@ -40,6 +40,20 @@ const user = [
 ]
 const human = { count: 3 }
 const ListPageScreen = () => {
+
+  const [selectedIndex, setselectedIndex] = useState(0);
+
+
+  const buttons = ['入力', '在庫', '日数', '設定']
+
+
+  const onPress = (nextIndex) => {
+    setselectedIndex(nextIndex)
+    if (selectedIndex === nextIndex) {
+    }
+    else {
+    }
+  }
   return (
     <View style={styles.container}>
       <View style={{ marginTop: 5, marginHorizontal: 15 }}>
@@ -47,7 +61,20 @@ const ListPageScreen = () => {
       </View>
       {/* <Stock user={props.user} style={{ flex: 0.8 }} /> */}
       <Stock user={user} style={{ flex: 1 }} />
+      {/* <ButtonGroup
+        onPress={(selectedIndex) => onPress(selectedIndex)}
+        selectedIndex={selectedIndex}
 
+        buttons={buttons}
+        containerStyle={{ height: 30 }}
+        buttonStyle={{
+          borderWidth: 1,
+          borderColor: 'gray',
+          borderBottomLeftRadius: 5,
+          borderTopRightRadius: 10,
+          marginHorizontal: 1
+        }}
+      /> */}
 
     </View >
   );

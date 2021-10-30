@@ -9,6 +9,9 @@ const categories = [
 
 ];
 
+const buttons = ['入力', '在庫', '日数', '設定']
+
+
 
 export function getCategory(num) {
 

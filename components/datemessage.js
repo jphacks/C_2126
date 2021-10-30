@@ -1,6 +1,6 @@
 import React, { Component, useCallback, useRef, useState } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { ButtonGroup, Button, Icon, Card, Input, Text } from 'react-native-elements';
+import { LinearProgress, Button, Icon, Card, Input, Text } from 'react-native-elements';
 
 
 const Textinfo = (props) => {
@@ -22,22 +22,26 @@ const Textinfo = (props) => {
 
 }
 const Statebar = (props) => {
-    const rateflex = Math.min(props.ideal - props.date, 2)
+    const rateflex = Math.min(props.date / props.ideal, 1)
+    console.log(rateflex)
+    console.log(props.date / props.ideal)
     return (
-        <View style={styles.bar} >
-            <View style={{
-                flex: props.date,
-                backgroundColor: 'red'
+        <LinearProgress value={rateflex} color="primary" variant="determinate" style={styles.bar} />
+        /* <LinearProgress value={0.5} color="secondary" trackkColor="red" /> */
+        // <View style={styles.bar} >
+        //     <View style={{
+        //         flex: props.date,
+        //         backgroundColor: 'red'
 
-            }}
-            ></View>
-            <View style={{
-                flex: rateflex,
-            }}
-            ></View>
+        //     }}
+        //     ></View>
+        //     <View style={{
+        //         flex: rateflex,
+        //     }}
+        //     ></View>
 
 
-        </View >
+        // </View >
 
     )
 }
@@ -104,7 +108,7 @@ const styles = StyleSheet.create({
     },
     bar: {
 
-        flexDirection: "row",
+        // flexDirection: "row",
         height: 5,
         backgroundColor: '#c0c0c0',
         marginTop: 5
